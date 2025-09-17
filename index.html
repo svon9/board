@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Muse | Visual Moodboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Helvetica Neue', sans-serif;
+        }
+
+        :root {
+            --bg-primary: #0a0b0d;
+            --bg-secondary: #131418;
+            --accent-primary: #ff2a6d;
+            --accent-secondary: #00cecb;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --card-bg: rgba(25, 26, 30, 0.8);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #15171c 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+            font-style: italic;
+        }
+
+        .quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent-primary);
+            position: absolute;
+            left: -2rem;
+            top: -0.5rem;
+            font-family: 'Playfair Display', serif;
+            opacity: 0.3;
+        }
+
+        .quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent-primary);
+            position: absolute;
+            right: -2rem;
+            bottom: -1rem;
+            font-family: 'Playfair Display', serif;
+            opacity: 0.3;
+        }
+
+        .quote-author {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-secondary);
+            margin-top: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        /* Moodboard Grid - Optimized for 3:4 images */
+        .moodboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            justify-content: center;
+        }
+
+        .mood-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mood-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 42, 109, 0.2);
+        }
+
+        /* Image containers optimized for 3:4 aspect ratio */
+        .image-placeholder {
+            aspect-ratio: 3/4;
+            background: linear-gradient(45deg, #1a1c22, #24272e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: var(--transition);
+        }
+
+        .image-placeholder::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 42, 109, 0.1), rgba(0, 206, 203, 0.1));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .mood-item:hover .image-placeholder::before {
+            opacity: 1;
+        }
+
+        .mood-item:hover .image-placeholder img {
+            transform: scale(1.02);
+        }
+
+        .theme-number {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent-primary);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .theme-title {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            z-index: 2;
+        }
+
+        .image-placeholder i {
+            font-size: 3rem;
+            color: var(--accent-secondary);
+            opacity: 0.7;
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: var(--transition);
+        }
+
+        .mood-item:hover .image-placeholder i {
+            opacity: 0;
+        }
+
+        /* Content sections */
+        .mood-content {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .description {
+            margin-bottom: 1.5rem;
+        }
+
+        .description p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .detail-item i {
+            color: var(--accent-secondary);
+            width: 16px;
+        }
+
+        /* Page Navigation */
+        .page-1, .page-2, .page-3, .page-4 {
+            display: none;
+        }
+
+        .page-1.active, .page-2.active, .page-3.active, .page-4.active {
+            display: block;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .page-btn {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-btn:hover {
+            border-color: var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .page-btn.active {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .page-indicator {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mood-item {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .page-1 .mood-item:nth-child(1) { animation-delay: 0.1s; }
+        .page-1 .mood-item:nth-child(2) { animation-delay: 0.2s; }
+        .page-2 .mood-item:nth-child(1) { animation-delay: 0.1s; }
+        .page-2 .mood-item:nth-child(2) { animation-delay: 0.2s; }
+        .page-3 .mood-item:nth-child(1) { animation-delay: 0.1s; }
+        .page-3 .mood-item:nth-child(2) { animation-delay: 0.2s; }
+        .page-4 .mood-item:nth-child(1) { animation-delay: 0.1s; }
+
+        /* Gallery Styles */
+        .gallery-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--accent-primary);
+            color: var(--text-primary);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .gallery-toggle:hover {
+            background: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 42, 109, 0.3);
+        }
+
+        .gallery-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            z-index: 1000;
+            overflow-y: auto;
+            backdrop-filter: blur(20px);
+        }
+
+        .gallery-sidebar.open {
+            right: 0;
+        }
+
+        .sidebar-header {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-header h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .close-sidebar {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-sidebar:hover {
+            color: var(--accent-primary);
+            background: rgba(255, 42, 109, 0.1);
+        }
+
+        .gallery-grid {
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+        }
+
+        .gallery-overlay.active {
+            display: flex;
+        }
+
+        .image-viewer {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-viewer img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+        }
+
+        .viewer-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: var(--card-bg);
+            border: none;
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .viewer-close:hover {
+            background: var(--accent-primary);
+        }
+
+        .viewer-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .nav-btn {
+            background: var(--card-bg);
+            border: none;
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            pointer-events: all;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-primary);
+        }
+
+        .nav-btn.prev {
+            transform: translateX(-50px);
+        }
+
+        .nav-btn.next {
+            transform: translateX(50px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .moodboard {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .moodboard {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .image-placeholder {
+                aspect-ratio: 3/4;
+            }
+
+            .gallery-sidebar {
+                width: 100vw;
+                right: -100vw;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-toggle {
+                top: 1rem;
+                right: 1rem;
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .nav-btn.prev {
+                transform: translateX(-20px);
+            }
+
+            .nav-btn.next {
+                transform: translateX(20px);
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .quote {
+                font-size: 1.2rem;
+                margin: 1.5rem 1rem;
+            }
+
+            .quote::before,
+            .quote::after {
+                font-size: 2rem;
+            }
+
+            .quote::before {
+                left: -1rem;
+                top: -0.3rem;
+            }
+
+            .quote::after {
+                right: -1rem;
+                bottom: -0.8rem;
+            }
+
+            .quote-author {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .moodboard {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .image-placeholder {
+                aspect-ratio: 3/4;
+                max-height: 400px;
+            }
+        }
+    </style>
+</head><body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>AEMON ART</h1>
+                <div class="quote">
+                    My job as a portrait photographer is to seduce, amuse and entertain.
+                    <div class="quote-author">— Helmut Newton</div>
+                </div>
+                <p class="subtitle">A SERIES OF SEVEN CINEMATIC THEMES IN A LUXURY SUITE</p>
+            </div>
+        </header>
+
+        <!-- Page 1 -->
+        <div class="page-1 active">
+            <div class="moodboard">
+                <!-- Theme 1 -->
+                <div class="mood-item">
+                    <div class="image-placeholder">
+                        <img src="images/theme1-morning-after.jpg" alt="The Morning After">
+                        <div class="theme-number">01</div>
+                        <i class="fas fa-sun"></i>
+                        <div class="theme-title">The Morning After</div>
+                    </div>
+                    <div class="mood-content">
+                        <div class="description">
+                            <p>Sunrise serenity with the model wrapped in a white bedsheet on the window ledge, gazing at the waking city with her guitar beside her.</p>
+                        </div>
+                        <div class="details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Dawn - 6:00 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Soft, Natural Light</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Peaceful Intimacy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 2 -->
+                <div class="mood-item">
+                    <div class="image-placeholder">
+                        <img src="images/theme2-creative-spark.jpg" alt="Creative Spark">
+                        <div class="theme-number">02</div>
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="theme-title">Creative Spark</div>
+                    </div>
+                    <div class="mood-content">
+                        <div class="description">
+                            <p>Daytime creative chaos with the model on the floor, surrounded by sheet music, completely absorbed in her guitar.</p>
+                        </div>
+                        <div class="details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Midday - 12:00 PM</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Bright, Creative Energy</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-music"></i>
+                                <span>Artistic Flow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="page-2">
+            <div class="moodboard">
+                <!-- Theme 3 -->
+                <div class="mood-item">
+                    <div class="image-placeholder">
+                        <img src="images/theme3-rehearsal.jpg" alt="The Rehearsal">
+                        <div class="theme-number">03</div>
+                        <i class="fas fa-guitar"></i>
+                        <div class="theme-title">The Rehearsal</div>
+                    </div>
+                    <div class="mood-content">
+                        <div class="description">
+                            <p>Golden hour glamour with the model perched on the executive table, practicing her guitar as the setting sun creates dramatic shadows.</p>
+                        </div>
+                        <div class="details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Golden Hour - 6:00 PM</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Warm, Dramatic Light</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <span>Professional Focus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 4 -->
+                <div class="mood-item">
+                    <div class="image-placeholder">
+                        <img src="images/theme4-seductive-setlist.jpg" alt="Seductive Setlist">
+                        <div class="theme-number">04</div>
+                        <i class="fas fa-pen-fancy"></i>
+                        <div class="theme-title">Seductive Setlist</div>
+                    </div>
+                    <div class="mood-content">
+                        <div class="description">
+                            <p>Twilight ambiance with the model lying across the velvet sofa, writing a setlist while her guitar leans nearby.</p>
+                        </div>
+                        <div class="details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Twilight - 8:00 PM</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Moody Ambiance</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-gem"></i>
+                                <span>Luxurious Comfort</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="page-3">
+            <div class="moodboard">
+                <!-- Theme 5 -->
+                <div class="mood-item">
+                    <div class="image-placeholder">
+                        <img src="images/theme5-midnight-muse.jpg" alt="Midnight Muse">
+                        <div class="theme-number">05</div>
+                        <i class="fas fa-moon"></i>
+                        <div class="theme-title">Midnight Muse</div>
+                    </div>
+                    <div class="mood-content">
+                        <div class="description">
+                            <p>Midnight drama with the model kneeling over her guitar on rumpled silk sheets, illuminated by a single dramatic spotlight.</p>
+                        </div>
+                        <div class="details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Midnight - 12:00 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Dramatic Spotlight</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-fire"></i>
+                                <span>Intense Passion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 6 -->
+                <div class="mood-item">
+                    <div class="image-placeholder">
+                        <img src="images/theme6-rockstar-reflection.jpg" alt="Rockstar Reflection">
+                        <div class="theme-number">06</div>
+                        <i class="fas fa-mirror"></i>
+                        <div class="theme-title">Rockstar Reflection</div>
+                    </div>
+                    <div class="mood-content">
+                        <div class="description">
+                            <p>Late night introspection with the model gazing at her reflection in the bathroom doorway, guitar held loosely at her side.</p>
+                        </div>
+                        <div class="details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Late Night - 2:00 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Reflective Mood</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-thought-bubble"></i>
+                                <span>Deep Contemplation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4 -->
+        <div class="page-4">
+            <div class="moodboard">
+                <!-- Theme 7 -->
+                <div class="mood-item">
+                    <div class="image-placeholder">
+                        <img src="images/theme7-after-party.jpg" alt="The After-Party">
+                        <div class="theme-number">07</div>
+                        <i class="fas fa-crown"></i>
+                        <div class="theme-title">The After-Party</div>
+                    </div>
+                    <div class="mood-content">
+                        <div class="description">
+                            <p>Deep night decadence with the model standing on the table striking a powerful rockstar pose amid the after-party chaos.</p>
+                        </div>
+                        <div class="details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Deep Night - 4:00 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Wild, Chaotic Energy</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Victory Celebration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="pagination">
+            <button class="page-btn active" data-page="1">
+                <span class="page-indicator">01</span>
+            </button>
+            <button class="page-btn" data-page="2">
+                <span class="page-indicator">02</span>
+            </button>
+            <button class="page-btn" data-page="3">
+                <span class="page-indicator">03</span>
+            </button>
+            <button class="page-btn" data-page="4">
+                <span class="page-indicator">04</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Gallery Toggle Button -->
+    <button class="gallery-toggle" onclick="toggleGallery()">
+        <i class="fas fa-images"></i>
+        <span>Gallery</span>
+    </button>
+
+    <!-- Gallery Sidebar -->
+    <div class="gallery-sidebar" id="gallerySidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-images"></i> Gallery</h3>
+            <button class="close-sidebar" onclick="toggleGallery()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+            <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 2rem;">
+                Loading PNG images...
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Overlay -->
+    <div class="gallery-overlay" id="galleryOverlay" onclick="closeImageViewer()">
+        <div class="image-viewer">
+            <img id="viewerImage" src="" alt="Gallery Image">
+            <button class="viewer-close" onclick="closeImageViewer()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="viewer-nav">
+                <button class="nav-btn prev" onclick="prevImage()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn next" onclick="nextImage()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Page Navigation
+        document.querySelectorAll('.page-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetPage = this.getAttribute('data-page');
+
+                // Remove active class from all pages and buttons
+                document.querySelectorAll('.page-1, .page-2, .page-3, .page-4').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.querySelectorAll('.page-btn').forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                // Add active class to target page and button
+                document.querySelector(`.page-${targetPage}`).classList.add('active');
+                this.classList.add('active');
+            });
+        });
+
+        // Gallery functionality
+        let currentImages = [];
+        let currentImageIndex = 0;
+
+        // Load gallery images dynamically
+        async function loadGalleryImages() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.innerHTML = ''; // Clear loading message
+
+            // Try to load images with various naming patterns
+            const patterns = [];
+            const timestamp = Date.now();
+
+            // Generate potential PNG image names
+            for (let i = 1; i <= 50; i++) {
+                patterns.push(`generated-image-${timestamp}-${i}.png`);
+                patterns.push(`generated-image-1758045142538-${i}.png`);
+                patterns.push(`generated-image-${i}.png`);
+                patterns.push(`ai-generated-${i}.png`);
+                patterns.push(`output-${i}.png`);
+                patterns.push(`render-${i}.png`);
+                patterns.push(`image-${i}.png`);
+                patterns.push(`photo-${i}.png`);
+                patterns.push(`img-${i}.png`);
+            }
+
+            let loadedCount = 0;
+            let checkedCount = 0;
+            const maxImages = 30;
+
+            patterns.forEach(imageName => {
+                const img = new Image();
+                img.onload = function() {
+                    if (loadedCount < maxImages) {
+                        createGalleryItem(`images/${imageName}`, galleryGrid);
+                        currentImages.push(`images/${imageName}`);
+                        loadedCount++;
+                    }
+                };
+                img.onerror = function() {
+                    checkedCount++;
+                    // If we've checked many images and found none, show message
+                    if (checkedCount > 30 && loadedCount === 0) {
+                        galleryGrid.innerHTML = `
+                            <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 2rem;">
+                                No PNG images found in the images folder.<br>
+                                <small>Place PNG images in the /images/ folder to see them here.</small>
+                            </div>
+                        `;
+                    }
+                };
+                img.src = `images/${imageName}`;
+            });
+        }
+
+        function createGalleryItem(imageSrc, container) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = `<img src="${imageSrc}" alt="Gallery Image" loading="lazy">`;
+            item.onclick = () => openImageViewer(imageSrc);
+            container.appendChild(item);
+        }
+
+        function toggleGallery() {
+            const sidebar = document.getElementById('gallerySidebar');
+            sidebar.classList.toggle('open');
+
+            // Load images if sidebar is opened and not loaded yet
+            if (sidebar.classList.contains('open') && currentImages.length === 0) {
+                loadGalleryImages();
+            }
+        }
+
+        function openImageViewer(imageSrc) {
+            const overlay = document.getElementById('galleryOverlay');
+            const viewerImage = document.getElementById('viewerImage');
+
+            currentImageIndex = currentImages.indexOf(imageSrc);
+            viewerImage.src = imageSrc;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageViewer() {
+            const overlay = document.getElementById('galleryOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextImage() {
+            if (currentImages.length === 0) return;
+            currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+            document.getElementById('viewerImage').src = currentImages[currentImageIndex];
+        }
+
+        function prevImage() {
+            if (currentImages.length === 0) return;
+            currentImageIndex = currentImageIndex === 0 ? currentImages.length - 1 : currentImageIndex - 1;
+            document.getElementById('viewerImage').src = currentImages[currentImageIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const overlay = document.getElementById('galleryOverlay');
+            if (overlay.classList.contains('active')) {
+                switch(e.key) {
+                    case 'Escape':
+                        closeImageViewer();
+                        break;
+                    case 'ArrowLeft':
+                        prevImage();
+                        break;
+                    case 'ArrowRight':
+                        nextImage();
+                        break;
+                }
+            }
+
+            // Press 'G' to toggle gallery
+            if (e.key === 'g' || e.key === 'G') {
+                toggleGallery();
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Moodboard loaded successfully');
+        });
+    </script>
+</body>
+</html>
